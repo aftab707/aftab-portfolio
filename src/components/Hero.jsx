@@ -1,101 +1,283 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Download, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, MapPin, Sparkles, Calendar, CheckCircle2, Code2 } from 'lucide-react';
 
 const Hero = () => {
-  const proofPoints = ['Client SaaS work', 'AI chatbot pipelines', 'RAG applications'];
-  const roles = ['SOFTWARE ENGINEER','AI SPECIALIST', 'TECH CONSULTANT'];
+  const roles = [
+    'AI AUTOMATION SPECIALIST',
+    'FULL-STACK ENGINEER',
+    'PYTHON & RAG DEVELOPER'
+  ];
   const [roleIndex, setRoleIndex] = useState(0);
+
+  const proofPoints = [
+    '⚡ React & Python Backends',
+    '🧠 Intelligent RAG & AI Agents',
+    '🛡️ Production-Grade APIs & SaaS',
+    '🌍 24/7 Worldwide Availability'
+  ];
 
   useEffect(() => {
     const interval = window.setInterval(() => {
       setRoleIndex((current) => (current + 1) % roles.length);
-    }, 2400);
+    }, 2500);
 
     return () => window.clearInterval(interval);
   }, [roles.length]);
 
   return (
     <section className="hero-section" style={{ 
-      minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', paddingTop: '96px', overflow: 'hidden'
+      minHeight: '100vh', 
+      display: 'flex', 
+      alignItems: 'center', 
+      position: 'relative', 
+      paddingTop: '110px', 
+      paddingBottom: '60px',
+      overflow: 'hidden'
     }}>
-      {/* Background glow effects */}
-      <div style={{ position: 'absolute', top: '20%', left: '10%', width: '300px', height: '300px', background: '#38bdf8', filter: 'blur(120px)', opacity: 0.15, borderRadius: '50%', zIndex: -1 }}></div>
-      <div style={{ position: 'absolute', bottom: '20%', right: '10%', width: '300px', height: '300px', background: '#c084fc', filter: 'blur(120px)', opacity: 0.15, borderRadius: '50%', zIndex: -1 }}></div>
+      {/* Ambient background lighting */}
+      <div style={{ 
+        position: 'absolute', 
+        top: '15%', 
+        left: '5%', 
+        width: '380px', 
+        height: '380px', 
+        background: 'radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%)', 
+        filter: 'blur(60px)', 
+        pointerEvents: 'none',
+        zIndex: 0 
+      }}></div>
+      
+      <div style={{ 
+        position: 'absolute', 
+        bottom: '15%', 
+        right: '5%', 
+        width: '420px', 
+        height: '420px', 
+        background: 'radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, transparent 70%)', 
+        filter: 'blur(70px)', 
+        pointerEvents: 'none',
+        zIndex: 0 
+      }}></div>
 
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.08fr) minmax(320px, 0.92fr)', gap: '4rem', alignItems: 'center' }}>
+      <div className="container" style={{ 
+        position: 'relative', 
+        zIndex: 1, 
+        display: 'grid', 
+        gridTemplateColumns: 'minmax(0, 1.15fr) minmax(320px, 0.85fr)', 
+        gap: '4rem', 
+        alignItems: 'center' 
+      }}>
         
-        {/* Left Content */}
+        {/* Left Content Column */}
         <div className="animate-fade-up">
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.2)', borderRadius: '9999px', color: '#38bdf8', fontWeight: 600, marginBottom: '1.5rem', fontSize: '0.875rem' }}>
-            <Sparkles size={16} /> Available for AI, RAG & SaaS projects
+          
+          {/* Availability Pill */}
+          <div style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '0.65rem', 
+            padding: '0.45rem 1.1rem', 
+            background: 'rgba(56, 189, 248, 0.08)', 
+            border: '1px solid rgba(56, 189, 248, 0.25)', 
+            borderRadius: '9999px', 
+            color: '#38bdf8', 
+            fontWeight: 600, 
+            marginBottom: '1.75rem', 
+            fontSize: '0.85rem',
+            letterSpacing: '0.02em',
+            backdropFilter: 'blur(8px)'
+          }}>
+            <span className="pulse-dot"></span>
+            Available for Contract & SaaS Projects
           </div>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+
+          {/* Heading */}
+          <h1 style={{ 
+            fontSize: 'clamp(2.4rem, 4.2vw, 3.85rem)', 
+            marginBottom: '1.5rem', 
+            lineHeight: 1.15,
+            letterSpacing: '-0.025em' 
+          }}>
             <span className="hero-role-line">
               <span className="hero-role-static">I'M A</span>
-              <span key={roles[roleIndex]} className="hero-role-dynamic">{roles[roleIndex]}</span>
+              <span key={roles[roleIndex]} className="hero-role-dynamic">
+                {roles[roleIndex]}
+              </span>
             </span>
-            {/* <span className="hero-subline">
-              Building <span className="gradient-text">RAG, chatbot & SaaS products</span>
-            </span> */}
           </h1>
-          <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)', marginBottom: '2.5rem', lineHeight: 1.7 }}>
-            I help clients turn business workflows into reliable AI chatbots, retrieval systems, and web platforms. My recent work includes client-facing SaaS, lead-generation bots, and graph-based RAG systems.
+
+          {/* Business-Oriented Value Proposition */}
+          <p style={{ 
+            fontSize: '1.125rem', 
+            color: 'var(--text-muted)', 
+            marginBottom: '2.5rem', 
+            lineHeight: 1.75,
+            maxWidth: '580px' 
+          }}>
+            I engineer production-ready web applications, scalable SaaS architectures, and intelligent RAG chatbots for international startups and businesses. Focused on clean code, rapid delivery, and measurable ROI.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="#projects" className="btn btn-primary">
-              View My Work <ArrowRight size={20} />
+
+          {/* CTAs */}
+          <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
+            <a 
+              href="https://cal.com/aftab-shad-y7krbq/15min" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary"
+            >
+              <Calendar size={18} /> Book a 15-Min Intro Call
             </a>
+            
+            <a href="#projects" className="btn btn-secondary">
+              View Selected Work <ArrowRight size={18} />
+            </a>
+
             <a href="/Resume/Aftab_Resume.pdf" className="btn btn-secondary" target="_blank" download>
-              Download CV <Download size={20} />
+              <Download size={18} /> Resume
             </a>
           </div>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '2rem' }}>
+
+          {/* Key Engineering Pillars */}
+          <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', marginTop: '2.5rem' }}>
             {proofPoints.map((point) => (
-              <span key={point} style={{ color: 'var(--text-muted)', border: '1px solid var(--border-color)', background: 'rgba(255,255,255,0.03)', borderRadius: '9999px', padding: '0.45rem 0.85rem', fontSize: '0.875rem' }}>
+              <span 
+                key={point} 
+                style={{ 
+                  color: 'var(--text-main)', 
+                  border: '1px solid var(--border-color)', 
+                  background: 'var(--bg-card)', 
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '9999px', 
+                  padding: '0.4rem 0.85rem', 
+                  fontSize: '0.825rem',
+                  fontWeight: 600
+                }}
+              >
                 {point}
               </span>
             ))}
           </div>
+
         </div>
 
-        {/* Right portrait */}
-        <div className="animate-fade-up" style={{ animationDelay: '200ms', position: 'relative', display: 'flex', justifyContent: 'center' }}>
-          <div style={{ position: 'absolute', inset: '1rem', background: 'var(--gradient-main)', borderRadius: '2rem', transform: 'rotate(4deg)', opacity: 0.45, zIndex: -1 }}></div>
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.05)', borderRadius: '2rem', transform: 'rotate(-2deg)', backdropFilter: 'blur(10px)', border: '1px solid var(--border-color)', zIndex: -1 }}></div>
+        {/* Right Portrait & Trust Cards Column */}
+        <div className="animate-fade-up hero-portrait-wrapper" style={{ 
+          animationDelay: '150ms', 
+          position: 'relative', 
+          display: 'flex', 
+          justifyContent: 'center' 
+        }}>
           
-          <img 
-            src="/images/aftab-profile-dark.png" 
-            alt="Aftab Ali professional portrait" 
-            style={{ 
-              width: '100%', 
-              maxWidth: '430px', 
-              aspectRatio: '4/5', 
-              objectFit: 'cover', 
-              objectPosition: 'center 35%',
-              borderRadius: '2rem', 
-              border: '1px solid rgba(255,255,255,0.1)',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.5)'
-            }} 
-          />
-          <div style={{ position: 'absolute', left: '0.25rem', bottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.55rem', background: 'rgba(11, 15, 25, 0.86)', border: '1px solid var(--border-color)', borderRadius: '9999px', color: '#fff', padding: '0.65rem 0.9rem', backdropFilter: 'blur(12px)', boxShadow: '0 12px 30px rgba(0,0,0,0.28)' }}>
-            <MapPin size={17} color="#38bdf8" />
-            <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Lahore, Pakistan - working globally</span>
+          {/* Subtle Outer Glow Frame */}
+          <div style={{ 
+            position: 'absolute', 
+            inset: '-10px', 
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(129, 140, 248, 0.15) 50%, transparent 75%)', 
+            borderRadius: '2.5rem', 
+            filter: 'blur(20px)',
+            zIndex: -1 
+          }}></div>
+
+          {/* Image Container Card */}
+          <div style={{
+            position: 'relative',
+            borderRadius: '2rem',
+            padding: '8px',
+            background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.8)'
+          }}>
+            <img 
+              src="/images/profile1.jpg" 
+              alt="Aftab Ali — Full Stack & AI Systems Engineer" 
+              style={{ 
+                width: '100%', 
+                maxWidth: '410px', 
+                aspectRatio: '4/5', 
+                objectFit: 'cover', 
+                objectPosition: 'center 20%',
+                borderRadius: '1.65rem', 
+                display: 'block'
+              }} 
+            />
+
+            {/* Top Floating Badge */}
+            <div style={{ 
+              position: 'absolute', 
+              top: '1.25rem', 
+              right: '-1rem', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              background: 'rgba(7, 9, 14, 0.92)', 
+              border: '1px solid rgba(56, 189, 248, 0.3)', 
+              borderRadius: '9999px', 
+              color: '#f8fafc', 
+              padding: '0.55rem 0.95rem', 
+              backdropFilter: 'blur(16px)', 
+              boxShadow: '0 12px 30px rgba(0,0,0,0.5)',
+              fontSize: '0.8rem',
+              fontWeight: 600
+            }}>
+              <CheckCircle2 size={16} color="#38bdf8" />
+              <span>100% Delivery Track Record</span>
+            </div>
+
+            {/* Bottom Floating Card */}
+            <div style={{ 
+              position: 'absolute', 
+              left: '0.5rem', 
+              right: '0.5rem',
+              bottom: '1rem', 
+              display: 'flex', 
+              flexDirection: 'column',
+              gap: '0.35rem', 
+              background: 'rgba(7, 9, 14, 0.92)', 
+              border: '1px solid rgba(255, 255, 255, 0.1)', 
+              borderRadius: '1.25rem', 
+              color: '#fff', 
+              padding: '0.85rem 1.15rem', 
+              backdropFilter: 'blur(16px)', 
+              boxShadow: '0 14px 35px rgba(0,0,0,0.6)' 
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: '0.95rem', fontWeight: 700, letterSpacing: '-0.01em' }}>Aftab Ali</span>
+                <span style={{ fontSize: '0.75rem', color: '#38bdf8', fontWeight: 600 }}>Full-Stack & AI</span>
+              </div>
+              
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-muted)' }}>
+                <MapPin size={14} color="#34d399" />
+                <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>Lahore (UTC+5) • 24/7 Global Availability</span>
+              </div>
+            </div>
+
           </div>
+
         </div>
 
       </div>
+
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .hero-section > .container {
             grid-template-columns: 1fr !important;
             text-align: center;
+            gap: 3.5rem !important;
           }
           .hero-section > .container > div:first-child > div {
             justify-content: center;
+          }
+          .hero-portrait-wrapper {
+            order: -1;
+            margin-bottom: 1rem;
+          }
+          .hero-portrait-wrapper .top-badge {
+            right: 0.5rem !important;
           }
         }
       `}</style>
     </section>
   );
 };
+
 export default Hero;
